@@ -1,0 +1,20 @@
+{
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "type": "module",
+  "scripts": {
+    "prepare": "husky",
+    "check": "ultracite check",
+    "fix": "ultracite fix"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
+    "husky": "^9.1.7",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
+    "ultracite": "^7.11.1"
+  }
+}
