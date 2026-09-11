@@ -8,4 +8,18 @@ import tanstack from "ultracite/oxlint/tanstack";
 export default defineConfig({
   extends: [core, react, nestjs, jest, tanstack],
   ignorePatterns: core.ignorePatterns,
+  overrides: [
+    {
+      files: ["backend/**/*.ts"],
+      rules: {
+        "typescript/consistent-type-imports": "off",
+        "typescript/no-extraneous-class": [
+          "error",
+          { allowWithDecorator: true },
+        ],
+        "typescript/parameter-properties": "off",
+        "eslint/func-style": "off",
+      },
+    },
+  ],
 });
