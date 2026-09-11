@@ -1,9 +1,12 @@
-import { NestFactory } from '@nestjs/core';
-import type { NestExpressApplication } from '@nestjs/platform-express';
-import { AppModule } from './app/app.module';
+import { NestFactory } from "@nestjs/core";
+import type { NestExpressApplication } from "@nestjs/platform-express";
+
+import { AppModule } from "./app/app.module";
+import { ConfigurationService } from "./configuration/configuration.service";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen(process.env.PORT || 3000);
+  const configurationService = app.get(ConfigurationService);
+  await app.listen(configurationService.appPort);
 }
 bootstrap();
