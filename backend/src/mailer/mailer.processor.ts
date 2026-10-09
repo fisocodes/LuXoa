@@ -25,7 +25,7 @@ export class MailerProcessor extends WorkerHost {
 
   async process(job: Job<{ to: string; code: string }>): Promise<void> {
     if (job.name !== "send:otp") {
-      return;
+      throw new Error(`Unknown mailer job: ${job.name}`);
     }
 
     const html = await render(OtpEmailTemplate({ code: job.data.code }));

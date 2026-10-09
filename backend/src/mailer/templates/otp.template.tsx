@@ -10,7 +10,7 @@ const OtpEmailTemplate = ({ code }: OtpEmailTemplateProps) => (
     <Tailwind>
       <Body>
         <div className="flex h-dvh items-center justify-center">
-          <p>Your one time password: ${code}</p>
+          <p>Your one time password: {code}</p>
         </div>
       </Body>
     </Tailwind>
