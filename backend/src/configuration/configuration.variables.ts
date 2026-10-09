@@ -1,4 +1,4 @@
-import { Type } from "class-transformer";
+import { Transform, Type } from "class-transformer";
 import {
   IsBoolean,
   IsEmail,
@@ -72,7 +72,7 @@ export class ConfigurationVariables {
   @Max(65_535)
   SMTP_PORT!: number;
 
-  @Type(() => Boolean)
+  @Transform(({ value }) => value === true || value === "true")
   @IsBoolean()
   SMTP_SECURE!: boolean;
 
