@@ -1,3 +1,4 @@
+import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import type { NestExpressApplication } from "@nestjs/platform-express";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
@@ -9,6 +10,14 @@ import { ConfigurationService } from "./configuration/configuration.service";
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configurationService = app.get(ConfigurationService);
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      forbidNonWhitelisted: true,
+      transform: true,
+      whitelist: true,
+    })
+  );
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle("LuXoa API")

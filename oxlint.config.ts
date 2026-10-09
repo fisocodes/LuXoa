@@ -21,5 +21,12 @@ export default defineConfig({
         "eslint/func-style": "off",
       },
     },
+    {
+      files: ["backend/src/database/migrations/**/*.ts"],
+      rules: {
+        "eslint/class-methods-use-this": "off",
+        "unicorn/filename-case": "off",
+      },
+    },
   ],
 });

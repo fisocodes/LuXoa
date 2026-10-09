@@ -16,4 +16,5 @@ export default new DataSource({
   synchronize: false,
   type: "postgres",
   username: process.env.DATABASE_USERNAME,
+  uuidExtension: "pgcrypto",
 });

@@ -17,6 +17,7 @@ import { ConfigurationService } from "../configuration/configuration.service";
         port: configurationService.databasePort,
         type: "postgres",
         username: configurationService.databaseUsername,
+        uuidExtension: "pgcrypto",
       }),
     }),
   ],
